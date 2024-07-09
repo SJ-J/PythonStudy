@@ -278,6 +278,53 @@ def solution(n):
   return answer
 
 
+# 모스부호1
+def solution(letter):
+
+  answer = ''
+  morse = { 
+      '.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',
+      '--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l',
+      '--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',
+      '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
+      '-.--':'y','--..':'z'
+  }
+
+  words = letter.split(' ')  # 공백을 기준으로 split
+  for char in words:
+      answer += morse[char]
+  
+  return answer
 
 
-print(solution(20))
+# 점 위치
+def solution(dot):
+  answer = 0
+
+  if dot[0] > 0:
+    if dot[1] > 0:
+      answer = 1
+    else:
+      answer = 4
+  if dot[0] < 0:
+    if dot[1] > 0:
+      answer = 2
+    else:
+      answer = 3
+
+  return answer
+
+# 구슬나누기
+import math
+def solution(balls, share):
+  answer = 0
+
+  balls_fac = math.factorial(balls)
+  share_fac = math.factorial(share)
+  bmins_fac = math.factorial(balls - share)
+
+  answer = int(balls_fac / (share_fac * bmins_fac))
+  
+  return answer
+
+print(solution(3, 2))
