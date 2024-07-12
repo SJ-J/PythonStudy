@@ -314,6 +314,7 @@ def solution(dot):
 
   return answer
 
+
 # 구슬나누기
 import math
 def solution(balls, share):
@@ -327,4 +328,38 @@ def solution(balls, share):
   
   return answer
 
-print(solution(3, 2))
+
+# 2차원
+def solution(num_list, n):
+  answer = []
+
+  for i in range(0, len(num_list), n):
+    answer.append(num_list[i:i+n])
+
+  return answer
+
+
+# 배열회전
+def solution(numbers, direction):
+  answer = []
+  if direction == 'right':
+    answer = [numbers[-1]] + numbers[0:-1]
+  elif direction == 'left':
+    answer = numbers[1:] + [numbers[0]]
+    
+  return answer
+# print(solution( [1, 2, 3], 'right' ))
+
+
+# 공던지기
+def solution(numbers, k):
+  answer = 0
+  nlen = len(numbers)
+  idx = 0
+
+  idx = ((k - 1) * 2) % nlen
+  answer = numbers[idx]
+
+  return answer
+  
+print(solution(	[1, 2, 3, 4, 5, 6], 2 ))
