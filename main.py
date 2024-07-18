@@ -361,5 +361,63 @@ def solution(numbers, k):
   answer = numbers[idx]
 
   return answer
+
+
+# 합성수찾기
+def solution(n):
+  answer = 0
+  cnt = 0
+
+  if n < 2:
+    return 0
+
+  for i in range(1, n + 1):  # 1~n
+    cnt = 0
+    for j in range(1, i + 1):  # 1~n의 약수 개수
+        if i % j == 0:
+          cnt += 1
+    if cnt >= 3:
+      answer += 1
+    
+  return answer
+
+
+# 팩토리얼
+def solution(n):
+  answer = 1
+  fac = 1
+
+  if n > 3628800: return 0
+
+  while fac <= n :
+      answer += 1
+      fac = fac * answer
+  answer = answer-1
   
-print(solution(	[1, 2, 3, 4, 5, 6], 2 ))
+  return answer
+
+
+# 최댓값만들기
+def solution(numbers):
+  answer = 0
+
+  numbers.sort(reverse=True)
+  answer = numbers[0] * numbers[1]
+  
+  return answer
+
+
+# 주사위 개수 
+def solution(box, n):
+  answer = 0
+
+  box_0 = int( box[0] / n )
+  box_1 = int( box[1] / n )
+  box_2 = int( box[2] / n )
+
+  box = box_0 * box_1 * box_2
+  answer = box
+  
+  return answer
+
+print(solution(	[10, 8, 6], 3 ))
