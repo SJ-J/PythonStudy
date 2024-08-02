@@ -420,4 +420,120 @@ def solution(box, n):
   
   return answer
 
-print(solution(	[10, 8, 6], 3 ))
+
+# 모음 제거
+def solution(my_string):
+  answer = ''
+  mo = ['a', 'e', 'i', 'o', 'u']
+  for char in mo:
+    my_string = my_string.replace(char, '')
+    
+  return my_string
+
+
+# 문자열 정렬
+def solution(my_string):
+  answer = []
+  nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+  for num in nums:
+    answer += [int(char) for char in my_string if char == num]
+    answer.sort()
+    
+  return answer
+
+
+# 숨어있는 숫자의 덧셈1
+def solution(my_string):
+  answer = 0
+  number = []
+  nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+  for num in nums:
+    number += [int(char) for char in my_string if char == num]
+    answer = sum(number)
+  
+  return answer
+
+
+# 배열원소길이
+def solution(strlist):
+  answer = []
+
+  for i in strlist:
+    answer.append(len(i))
+  
+  return answer
+
+
+# 중복문자제거
+def solution(my_string):
+  answer = ''
+  dup = []
+  
+  for char in my_string:
+    if char not in dup:
+      dup.append(char)
+      answer += char
+
+  return answer
+
+
+# 삼각형 완성 조건
+def solution(sides):
+  answer = 0
+  maxnum = 0
+
+  # 가능 1, 불가 2  
+  maxnum = max(sides)
+
+  sides.remove(maxnum)
+  if sum(sides) > maxnum:
+    answer = 1
+  else:
+    answer = 2
+
+  return answer
+
+
+# 소인수분해
+def solution(n):
+  answer = []
+  p = 2        # 2부터 시작
+
+  while p * p <= n:
+    # p가 n의 소인수인 경우
+    while n % p == 0:
+      answer.append(p)
+      n //= p
+    p += 1
+
+  if n > 1:
+    answer.append(n)
+
+  answer = list(set(answer))
+  answer.sort()
+  
+  return answer
+  
+
+# 컨트롤제트
+def solution(s):
+  answer = 0
+
+  s = s.split(" ")
+  calc = []
+
+  for i in s:                  # 공백 기준으로 자르기
+      if i == 'Z':             # i가 Z인 경우
+          if len(calc) != 0:   # calc가 비어있지 않은 경우
+              calc.pop()       # 가장 최근에 확인한 값 pop
+              print(calc)
+      else:
+          calc.append(int(i))  # i가 Z가 아닌 경우 calc 배열에 추가
+          print(calc)
+
+  answer = sum(calc)           # 빼지 않은 나머지 값 sum
+  return answer
+
+print( solution( "1 2 Z 3" ) )
+
