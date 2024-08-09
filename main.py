@@ -535,5 +535,54 @@ def solution(s):
   answer = sum(calc)           # 빼지 않은 나머지 값 sum
   return answer
 
-print( solution( "1 2 Z 3" ) )
+
+# 369
+def solution(order):
+  answer = 0
+  nums = [int(digit) for digit in str(order)]
+
+  for num in nums:
+      if num in [3, 6, 9]:
+          answer += 1
+
+  return answer
+
+
+# 암호해독
+def solution(cipher, code):
+  answer = ''
+  sent = [str for str in cipher]  # 리스트에 담음
+
+  for i, char in enumerate(sent, start=1):
+    if i % code == 0:
+        answer += char
+  
+  return answer
+
+
+# 대문자와 소문자
+def solution(my_string):
+  answer = my_string.swapcase()
+  return answer
+
+
+# 가까운 수
+def solution(array, n):
+
+  array.sort()
+
+  min_diff = float('inf')  # 설정한 가장 작은 값이 겹치는 경우를 대비하여 무한대로 초기값 설정
+  answer = None
+
+  for i in array:
+      diff = abs(i - n)
+
+      if diff < min_diff or (diff == min_diff and i < answer):
+          min_diff = diff
+          answer = i
+
+  return answer
+
+
+print( solution( [10, 11, 12, 14], 13 ) )
 
