@@ -641,7 +641,42 @@ def solution(s):
   return answer
 
 
-print( solution( "abdc" ) )
+# 편지
+def solution(message):
+  answer = 0
+  return len(message) * 2
+
+
+# 가장 큰 수
+def solution(array):
+  max_num = max(array)
+  index_num = array.index(max_num)
+  answer = [max_num, index_num]
+  return answer
+
+
+# 문자열 계산
+def solution(my_string):
+  calc = my_string.split(' ')
+  answer = int(calc[0])
+  for i in range(1, len(calc), 2):
+    if calc[i] == '+':
+      answer += int(calc[i + 1])
+    elif calc[i] == '-':
+      answer -= int(calc[i + 1])
+  return answer
+
+
+# 배열의 유사도
+def solution(s1, s2):
+  answer = 0
+  set1 = set(s1)
+  set2 = set(s2)
+  answer = len(set1 & set2)
+  return answer
+
+
+print( solution( ["a", "b", "c"], ["com", "b", "d", "p", "c"] ) )
 
 
 
