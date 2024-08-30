@@ -676,7 +676,60 @@ def solution(s1, s2):
   return answer
 
 
-print( solution( ["a", "b", "c"], ["com", "b", "d", "p", "c"] ) )
+# 자릿수 더하기
+def solution(n):
+  answer = 0
+  num = list(map(int, str(n)))
+  answer = sum(num)
+  return answer
+
+
+# n의 배수 고르기
+def solution(n, numlist):
+  answer = []
+  for num in numlist:
+    if num % n == 0:
+      answer.append(num)
+  return answer
+
+
+# 숫자 찾기
+def solution(num, k):
+  answer = 0
+  num_list = list(map(int, str(num)))
+  if k in num_list:
+    answer = num_list.index(k) + 1
+  else:
+    answer = -1
+  return answer
+
+
+# OX퀴즈
+def solution(quiz):
+  answer = []
+  formula = []
+
+  for i in quiz:
+    formula = i.split()
+    left = int(formula[0])
+    oper = formula[1]
+    right = int(formula[2])
+    true_result = int(formula[4])
+
+    if oper == '+':
+      result = left + right
+    elif oper == '-':
+      result = left - right
+
+    if result == true_result:
+      answer.append('O')
+    else:
+      answer.append('X')
+
+  return answer
+
+
+print( solution( ["3 - 4 = -3", "5 + 6 = 11"] ) )
 
 
 
