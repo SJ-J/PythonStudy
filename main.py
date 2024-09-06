@@ -729,7 +729,55 @@ def solution(quiz):
   return answer
 
 
-print( solution( ["3 - 4 = -3", "5 + 6 = 11"] ) )
+# 세균증식
+def solution(n, t):
+  answer = n
+
+  for i in range(t):
+    answer *= 2
+  
+  return answer
+
+
+# 문자열 정렬(2)
+def solution(my_string):
+  answer = ''
+
+  low_str = my_string.lower()
+  answer = ''.join(sorted(low_str))
+  
+
+  
+  return answer
+
+
+# 제곱수 판별
+def solution(n):
+  answer = 0
+
+  root_num = n ** 0.5
+  if root_num.is_integer():
+    answer = 1
+  else:
+    answer = 2
+  
+  return answer
+
+
+# 문자열 안에 문자열
+def solution(str1, str2):
+  answer = 0
+
+  if str2 in str1:
+    answer = 1
+  else:
+    answer = 2
+  
+  return answer
+
+
+
+print( solution( "ppprrrogrammers", "pppp" ) )
 
 
 
