@@ -776,8 +776,29 @@ def solution(str1, str2):
   return answer
 
 
+# 7의 개수
+def solution(array):
+  answer = 0
+  st_map = list(map(str, array))
 
-print( solution( "ppprrrogrammers", "pppp" ) )
+  for a in st_map:
+    if '7' in a:
+      answer += a.count('7')
+
+  return answer
+
+
+# 잘라서 배열로 저장
+def solution(my_str, n):
+  answer = []
+
+  for i in range(0, len(my_str), n):
+    answer.append(my_str[i:i+n])
+  
+  return answer
+  
+
+print( solution( "abc1Addfggg4556b" , 6 ) )
 
 
 
