@@ -796,9 +796,93 @@ def solution(my_str, n):
     answer.append(my_str[i:i+n])
   
   return answer
+
+
+# 직사각형 넓이
+def solution(dots):
+  answer = 0
+
+  x = [dot[0] for dot in dots]
+  y = [dot[1] for dot in dots]
+
+  width = max(x) - min(x)
+  height = max(y) - min(y)
+
+  answer = width * height
+
+  return answer
+
+
+# 캐릭터 좌표  <이해안됨
+def solution(keyinput, board):
+  answer = []
+  x, y = 0, 0
+  x_lim = (board[0] - 1) // 2
+  y_lim = (board[1] - 1) // 2
+
+  for key in keyinput:
+    if key == 'left':
+      x -= 1
+    elif key == 'right':
+      x += 1
+    elif key == 'up':
+      y += 1
+    elif key == 'down':
+      y -= 1
+
+    x = max(-x_lim, min(x, x_lim))
+    y = max(-y_lim, min(y, y_lim))
+
+  answer = [x, y]
+  
+  return answer
+
+
+# 최댓값
+def solution(numbers):
+  answer = numbers[0] * numbers[1] 
+
+  for i in range(len(numbers)):
+    for j in range(i + 1, len(numbers)):
+      nums = numbers[i] * numbers[j]
+      if nums > answer:
+        answer = nums
+  
+  return answer
+
+
+# 다항식 더하기
+def solution(polynomial):
+  answer = ''
+
+  # +를 기준으로 항 분리
+  formula = polynomial.split(' + ')
+
+  # 계수, 상수 변수 초기화
+  x_co = 0  # x의 계수
+  num = 0   # 상수
+
+  for i in formula:
+    if 'x' in i:    # x 포함
+      if i == 'x':  # x의 계수가 1인 경우
+        x_co += 1
+      else:         # x가 1이 아닌 경우
+        co = i.replace('x', '')  # x를 빼고(공백으로 치환하고)
+        x_co += int(co)           # x의 계수에 숫자만 더해줌
+    else:  # x가 없는 상수항인 경우, 상수 num에 더해줌
+      num += int(i)
+
+  if x_co > 0:  # x의 계수가 존재하는 경우
+    answer += 'x' if x_co == 1 else f'{x_co}x'
+  if num > 0:   # 상수항이 존재하는 경우
+    if answer:
+      answer += ' + '    # 기존 식 뒤에 +를 붙임
+    answer += str(num)   # + 뒤에 상수항을 붙임
+  
+  return answer
   
 
-print( solution( "abc1Addfggg4556b" , 6 ) )
+print( solution( "3x + 7 + x" ) )
 
 
 
